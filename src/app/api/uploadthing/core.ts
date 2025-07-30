@@ -23,7 +23,7 @@ export const ourFileRouter = {
     },
   })
   .input(z.object({
-    imageName: z.string().min(5)}))
+    imageName: z.string().min(5) }))
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req, input}) => {
       // This code runs on your server before upload

@@ -4,6 +4,7 @@ import { UploadButton } from "~/utils/uploadthing";
 import { UploadDialog } from "./_components/upload-dialog";
 import { get } from "http";
 import { getMyImages } from "~/server/queries";
+import { ImageModal } from "./_components/image-modal";
 
 export const dynamic = "force-dynamic"; // This page should always be dynamic
 
@@ -28,15 +29,18 @@ async function Images() {
     <div className="flex flex-wrap justify-center gap-6 p-4">
       {images.map((image) => (
           <div key={image.id} className="flex w-100 flex-col">
-            <div className="relative aspect-video bg-zinc-900">
-            <img 
-              src={image.imageUrl} 
-              alt={`Image ${image.id}`} 
-              className="h-full w-full object-contain object-top"
-              />
-            </div>
-              <div className="text-center">{image.id}</div>
+            <ImageModal image={image}>
+              <div className="relative aspect-video bg-zinc-900">
+              <img 
+                src={image.imageUrl} 
+                alt={`Image ${image.id}`} 
+                className="h-full w-full object-contain object-top"
+                />
+              </div>
+            </ImageModal>
+              <div className="text-center">{image.ImageName || image.filename}</div>
           </div>
+          
       ))}
     </div>
     </div>
