@@ -15,6 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "~/components/ui/dialog";
+import { DeleteButton } from "./delete-button";
 
 interface ImageModalProps {
   image: {
@@ -84,7 +85,8 @@ const {user} = useUser();
                     <span className="text-white-900">Created at: {new Date(image.createdAt).toLocaleString()}</span>
                 </div>
                 <div className="mt-4">
-                    <Button>Delete</Button>
+                    <DeleteButton idAsNumber={image.id}/>
+                    
                 </div>
               </div>
             </div>
