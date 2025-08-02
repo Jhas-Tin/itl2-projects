@@ -1,10 +1,11 @@
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+
 import Link from "next/link";
 import { UploadButton } from "~/utils/uploadthing";
 import { UploadDialog } from "./_components/upload-dialog";
 import { get } from "http";
 import { getMyImages } from "~/server/queries";
 import { ImageModal } from "./_components/image-modal";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 export const dynamic = "force-dynamic"; // This page should always be dynamic
 
@@ -52,7 +53,7 @@ export default async function HomePage() {
     <main className="">
       <SignedOut>
         <div className="h-full w-full text-center-2xl">
-          Please Sign In Above to Continue!!!
+          Please Sign In Above to Continue!
           
         </div>
       </SignedOut>
